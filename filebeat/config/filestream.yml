@@ -1,0 +1,16 @@
+# Conf input log
+- type: filestream
+  id: id-filestream-log
+  paths:
+    - /appli/filebeat/input/*.log
+  prospector.scanner.exclude_files: ['access.log']
+  fields:
+    type: log
+
+# Conf input accesslog
+- type: filestream
+  id: id-filestream-accesslog
+  paths:
+    - /appli/filebeat/input/access.log
+  fields:
+    type: accesslog   

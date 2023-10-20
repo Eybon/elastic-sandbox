@@ -1,0 +1,12 @@
+filebeat:
+  registry:
+    path: /appli/filebeat/registry
+  config:
+    inputs:
+      enabled: true
+      path: /appli/filebeat/config/*.yml
+
+output:
+  file:
+    path: /appli/filebeat/output
+    filename: filebeat-output.log
