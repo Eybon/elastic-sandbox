@@ -1,0 +1,11 @@
+filebeat:
+  registry:
+    path: /appli/filebeat/registry
+  config:
+    inputs:
+      enabled: true
+      path: /appli/filebeat/config/*.yml
+
+output:
+  logstash:
+    hosts: ["127.0.0.1:5044"]

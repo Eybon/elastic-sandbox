@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-rm -rf /appli
+rm -rf /appli/filebeat
 
 mkdir /appli
 mkdir /appli/filebeat
