@@ -2,6 +2,16 @@
 Projet Sandbox pour test des outils de la suite elastic
 
 
+## Docker Compose du repo
+
+Le fichier `docker-compose.yml` permet de démarrer les différentes images des outils présent dans le projet avec des connectivités OK.
+
+Commande Docker :
+```shell
+docker compose up -d 
+```
+
+
 ## Filebeat
 
 ### Lancement via image Docker

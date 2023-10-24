@@ -1,0 +1,24 @@
+version: '3'
+services:
+  logstash-local:
+    image: elastic/logstash:8.10.4
+    container_name: logstash-local
+    user: root
+    volumes:
+      - /appli/logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
+      - /appli/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - /appli/logstash/pipeline/:/appli/logstash/pipeline
+      - /appli/logstash/output/:/appli/logstash/output
+    network_mode: "host"
+
+  filebeat-local:
+    image: elastic/filebeat:8.10.3
+    container_name: filebeat-local
+    user: root
+    volumes:
+      - /appli/filebeat/filebeat-logstash.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /appli/filebeat/logs:/usr/share/filebeat/logs
+      - /appli/filebeat:/appli/filebeat
+    depends_on:
+      - logstash-local
+    network_mode: "host"
